@@ -106,12 +106,12 @@ syn region elixirSigil matchgroup=elixirSigilDelimiter start=+\~\a\z("""\)+ end=
 syn region elixirSigil matchgroup=elixirSigilDelimiter start=+\~\a\z('''\)+ end=+^\s*\zs\z1+ skip=+\\'+ fold
 
 " Documentation
-syn region elixirFunctionDoc start='@doc\s*"\{1}' end='"'
-syn region elixirFunctionDoc start='@doc\s*"\{3}' end='"""'
-syn region elixirModuleDoc start='@moduledoc\s*"\{1}' end='"'
-syn region elixirModuleDoc start='@moduleooc\s*"\{3}' end='"""'
-syn region elixirShortDoc start='@shortdoc\s*"\{1}' end='"'
-syn region elixirShortDoc start='@shortdoc\s*"\{3}' end='"""'
+syn region elixirFunctionDoc start='@doc\s*"\{1}' end='"' contains=elixirTodo
+syn region elixirFunctionDoc start='@doc\s*"\{3}' end='"""' contains=elixirTodo
+syn region elixirModuleDoc start='@moduledoc\s*"\{1}' end='"' contains=elixirTodo
+syn region elixirModuleDoc start='@moduleooc\s*"\{3}' end='"""' contains=elixirTodo
+syn region elixirShortDoc start='@shortdoc\s*"\{1}' end='"' contains=elixirTodo
+syn region elixirShortDoc start='@shortdoc\s*"\{3}' end='"""' contains=elixirTodo
 
 " Defines
 syn keyword elixirDefine              def            nextgroup=elixirFunctionDeclaration    skipwhite skipnl
