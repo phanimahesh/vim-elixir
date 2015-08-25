@@ -114,6 +114,16 @@ syn region elixirSigil matchgroup=elixirSigilDelimiter start="\~\l("            
 syn region elixirSigil matchgroup=elixirSigilDelimiter start=+\~\a\z("""\)+ end=+^\s*\zs\z1+ skip=+\\"+ fold
 syn region elixirSigil matchgroup=elixirSigilDelimiter start=+\~\a\z('''\)+ end=+^\s*\zs\z1+ skip=+\\'+ fold
 
+" Documentation
+syn region elixirFunctionDoc start='@doc\s*"\{1}' end='"' contains=elixirTodo
+syn region elixirFunctionDoc start='@doc\s*"\{3}' end='"""' contains=elixirTodo
+syn region elixirModuleDoc start='@moduledoc\s*"\{1}' end='"' contains=elixirTodo
+syn region elixirModuleDoc start='@moduledoc\s*"\{3}' end='"""' contains=elixirTodo
+syn region elixirShortDoc start='@shortdoc\s*"\{1}' end='"' contains=elixirTodo
+syn region elixirShortDoc start='@shortdoc\s*"\{3}' end='"""' contains=elixirTodo
+syn region elixirTypeDoc start='@typedoc\s*"\{1}' end='"' contains=elixirTodo
+syn region elixirTypeDoc start='@typedoc\s*"\{3}' end='"""' contains=elixirTodo
+
 " Defines
 syn keyword elixirDefine              def            nextgroup=elixirFunctionDeclaration    skipwhite skipnl
 syn keyword elixirPrivateDefine       defp           nextgroup=elixirFunctionDeclaration    skipwhite skipnl
@@ -163,6 +173,10 @@ hi def link elixirFunctionDeclaration    Function
 hi def link elixirMacroDeclaration       Macro
 hi def link elixirInclude                Include
 hi def link elixirComment                Comment
+hi def link elixirFunctionDoc            Comment
+hi def link elixirModuleDoc              Comment
+hi def link elixirShortDoc               Comment
+hi def link elixirTypeDoc                Comment
 hi def link elixirTodo                   Todo
 hi def link elixirKeyword                Keyword
 hi def link elixirOperator               Operator
